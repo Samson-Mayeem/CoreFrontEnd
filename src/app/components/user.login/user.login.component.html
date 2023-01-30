@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Login Page</title>
+          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+          <link rel="stylesheet" type="text/css" href="user.login.component.scss">
+        </head>
+        <body ng-app="System" ng-controller="loginCtrl">
+      
+          <form name="loginForm" ng-submit="submitForm()">
+            <div class="text-center">
+                <fa-icon [icon]="faLock" class="fa-3x"></fa-icon>
+            </div>
+            <input type="text" name="email" ng-model="user.email" placeholder="Email" required pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/" /><br/>
+      
+            <input type="password" name="password" ng-model="user.password"placeholder="Password"  required /><br/>
+      
+            <input type="submit" value="Submit"><br/>
+      
+            <!-- Forgot Password Link -->
+            <small><a routerLink="../forgotpassword" style="text-decoration: none;" ng-click='forgotPassword()'>Forgot Password?</a></small><br/>
+      
+            <!-- Create New Account Link -->
+            <small><a routerLink="../user.registration" style="text-decoration: none;"  ng-click='createAccount()'>Create New Account?</a></small><br/>
+          </form>
+          
+          <!-- Angular Script -->
+          <script type='text/javascript'> 
+              var app = angular.module('myApp', []); 
+              app.controller('loginCtrl', function($scope) { 
+                  $scope.submitForm = function(){   // Submit Form Functionality 
+                      alert("Form Submitted Successfully!");   // Alert Message after form submission 
+                  }  
+      
+                  $scope.forgotPassword = function(){   // Forgot Password Functionality 
+                      alert("Redirecting to Forgot Password Page!");   // Alert Message after forgot password link is clicked 
+                  }  
+      
+                  $scope.createAccount = function(){   // Create Account Functionality 
+                      alert("Redirecting to Create Account Page!");   // Alert Message after create account link is clicked 
+                    }
+                });
+            </script>
+        </body>
+    </html>
